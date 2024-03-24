@@ -41,12 +41,7 @@ const HeroSection = () => {
                     <div class="relative z-10 flex items-center justify-center w-11/12 h-[300px] sm:h-[300px] lg:h-[300px]">
                         <div class="absolute inset-0 w-full h-full bg-gradient-to-tl from-transparent to-red-400 sm:bg-gradient-radial sm:from-red-400 sm:to-transparent lg:bg-gradient-radial lg:from-red-400 lg:to-transparent blur-3xl rounded-full"></div>
                     </div>
-                    <div className='lg:inline-block'>
-                        <Link href="/terms" className='text-neutral-400 underline text-sm lg:text-white'>Terms of Service</Link>
-                    </div>
-                    <div className='lg:inline-block lg:ml-3'>
-                        <Link href="/privacy" className='underline text-sm text-neutral-400 lg:text-white'>Privacy Policy</Link>
-                    </div>
+
                 </div>
             </div>
         </section>

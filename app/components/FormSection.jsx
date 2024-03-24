@@ -4,8 +4,10 @@ import CircularProgress from '@mui/material/CircularProgress';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import io from 'socket.io-client'; // Import io object from socket.io-client
+import Link from 'next/link'
 
 const ENDPOINT = 'https://back-mars-one.onrender.com';
+
 
 
 const FormSection = () => {
@@ -13,6 +15,8 @@ const FormSection = () => {
     const [url, setUrl] = useState('');
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState(null);
+    const [imageData, setImageData] = useState(null);
+    const [sTitle, setTitle] = useState(null);
     const [error, setError] = useState(null);
     const [responseData, setResponseData] = useState(null);
     const [bigLoading, setBigLoading] = useState(false);
@@ -35,7 +39,7 @@ const FormSection = () => {
         // initiate downlaod code implementation which sends requests to backend download endpoint
         const initiateDownload = () => {
             setTimeout(() => {
-                const downloadUrl = 'https://back-mars-one.onrender.com/download'; // Replace with actual download endpoint
+                const downloadUrl = `${ENDPOINT}/download`; // Replace with actual download endpoint
                 const link = document.createElement('a');
                 link.href = downloadUrl;
                 link.download = 'large_file.zip'; // Change the filename if needed
@@ -127,11 +131,13 @@ const FormSection = () => {
             // setData(requestData.data);
 
 
-            const response = await axios.get(`https://back-mars-one.onrender.com/data?url=${url}`);
+            const response = await axios.get(`${ENDPOINT}/data?url=${url}`);
             console.log(response)
-            console.log(response.data);
+            console.log(response.data[0].formatData);
 
-            setData(response.data);
+            setData(response.data[0].formatData);
+            setImageData(response.data[0].imageUrl);
+            setTitle(response.data[0].videoTitle);
         } catch (error) {
             setError(error.message);
         } finally {
@@ -171,26 +177,29 @@ const FormSection = () => {
                 <div className="h-10"></div>
                 {loading && <CircularProgress style={{ color: 'white' }} size={80} />}
                 {data && (
+                    <div>   <div className='p-10'> <img src={`${imageData}`} height={108} width={192} alt="" className='justify-center' />
+                        <p className='mt-2 text-xs lg:text-sm'>{sTitle}</p></div>
+                        <div style={{ display: 'grid', justifyContent: 'center', alignItems: 'center' }}>
 
-                    <div style={{ display: 'grid', justifyContent: 'center', alignItems: 'center' }}>
-                        <p className='text-[#ADB7BE] text-sm font-mono lg:font-normal'>Select the Video format to download
-                        </p>
-                        <div className="underline flex flex-row justify-evenly pb-4 pt-3 font-mono">
-                            <div className="ml-5 mr-10">Format</div>
-                            <div className="mr-14">Quality</div>
-                            <div className="mr-10">Size</div>
+                            <p className='text-[#ADB7BE] text-sm font-mono lg:font-normal text-center'>Select the Video format to download
+                            </p>
+                            <div className="underline flex flex-row justify-evenly pb-4 pt-3 font-mono">
+                                <div className="ml-5 mr-10">Format</div>
+                                <div className="mr-14">Quality</div>
+                                <div className="mr-10">Size</div>
+                            </div>
+                            {data.map((item, index) => (
+                                <button key={index}
+                                    className='flex flex-row justify-around rounded-lg border border-transparent px-1 py-3 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30'
+                                    onClick={() => handleSubmit(index)} disabled={bigLoading}
+                                >
+                                    <div style={{ marginRight: '30px' }}> {item.Format}</div>
+                                    <div style={{ marginRight: '25px' }}> {item.Quality}</div>
+                                    <div> {item.Size}MB</div>
+                                    {/* <div>AV: {item.userId}</div> */}
+                                </button>
+                            ))}
                         </div>
-                        {data.map((item, index) => (
-                            <button key={index}
-                                className='flex flex-row justify-around rounded-lg border border-transparent px-1 py-3 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30'
-                                onClick={() => handleSubmit(index)} disabled={bigLoading}
-                            >
-                                <div style={{ marginRight: '30px' }}> {item.Format}</div>
-                                <div style={{ marginRight: '25px' }}> {item.Quality}</div>
-                                <div> {item.Size}MB</div>
-                                {/* <div>AV: {item.userId}</div> */}
-                            </button>
-                        ))}
                     </div>
                 )}
                 {bigLoading && <CircularProgress ref={scrollToRef} className='absolute z-20' style={{ color: 'white', animationDuration: '800ms' }} size={250} />}
@@ -219,6 +228,14 @@ const FormSection = () => {
 
             <p className='text-[#ADB7BE] text-center p-10 lg:p-0 text-sm font-mono lg:font-normal'>Secured by AI based malware detector
             </p>
+            <div className='justify-center flex flex-col items-center'>
+                <div className='lg:inline-block'>
+                    <Link href="/terms" className='text-neutral-400 underline text-sm lg:text-white'>Terms of Service</Link>
+                </div>
+                <div className='lg:inline-block lg:ml-3'>
+                    <Link href="/privacy" className='underline text-sm text-neutral-400 lg:text-white'>Privacy Policy</Link>
+                </div>
+            </div>
         </>
     )
 }
