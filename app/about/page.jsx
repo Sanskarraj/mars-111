@@ -46,7 +46,7 @@ const FromComponent = () => {
 
                     <div className="flex flex-col gap-12 justify-center text-white">
                         <h1 className="text-4xl">About US</h1>
-                        <p>SSYoutube Downloader is a prominent downloader that specializes in providing free HD video services. Discover a vast collection of videos and music, and easily download content from multiple websites, including popular platforms like Youtube, Facebook, and Instagram. With its user-friendly interface, fast performance, and compact size, SSYoutube Downloader is the ultimate choice for video downloads!</p>
+                        <p>Mars Youtube Downloader is a prominent downloader that specializes in providing free HD video services. Discover a vast collection of videos and music, and easily download content from multiple websites. With our user-friendly interface, fast performance, and compact size, Mars Youtube Downloader is the ultimate choice for video downloads!</p>
                     </div>
                 </div>
             </div>

@@ -47,7 +47,7 @@ const FromComponent = () => {
                     <div className="flex flex-col justify-center text-justify text-sm text-white">
                         <h1 className="text-5xl text-left">Terms Of Service</h1>
                         <p className="mt-12  text-white">
-                            Please review these terms and conditions of use carefully before using our website and services. This document states the terms and conditions (“Terms”) upon which ssyoutube.com (“we” or “us”) will provide service to you on its website, applications and related services (collectively, the “Service”). As used in this document, the terms “you” or “your” refers to you, any entity you represent, your or its representatives, successors, assigns and affiliates, and any of your or their devices.
+                            Please review these terms and conditions of use carefully before using our website and services. This document states the terms and conditions (“Terms”) upon which marsyoutube.com (“we” or “us”) will provide service to you on its website, applications and related services (collectively, the “Service”). As used in this document, the terms “you” or “your” refers to you, any entity you represent, your or its representatives, successors, assigns and affiliates, and any of your or their devices.
 
                             By visiting, accessing, using, downloading, copying, installing and/or joining (collectively “using”) the Service, you express your understanding and acceptance of these Terms. We may, in our sole discretion, modify or update these Terms from time to time, and you should review this page periodically. Your continued use of the Service after any such change means your acceptance of the new Terms. If you do not agree with the Terms, do not use or access (or continue to access) the Service. We retain a separate Privacy Policy and your assent to these Terms also signifies that you have read and understand our Privacy Policy.
                         </p>
@@ -157,7 +157,7 @@ const FromComponent = () => {
 
                         <div className="flex flex-col mt-10 text-[#ADB7BE]">
                             <h1 className="text-2xl  text-white">6. Copyright Claims</h1>
-                            <p className="mt-2">It is our policy to respond to notices of alleged copyright infringement that comply with applicable international intellectual property law, including, the Digital Millennium Copyright Act (“DMCA”). If you believe that any of your copyrighted material is being infringed, please let us know by submitting your claim to contact@ssyoutube.com. To submit your claim successfully, you must provide us with the following information:
+                            <p className="mt-2">It is our policy to respond to notices of alleged copyright infringement that comply with applicable international intellectual property law, including, the Digital Millennium Copyright Act (“DMCA”). If you believe that any of your copyrighted material is being infringed, please let us know by submitting your claim to contact@marsyoutube.com. To submit your claim successfully, you must provide us with the following information:
 
                                 i. Identification of the copyrighted work that is believed to be infringed. Please describe the work and, where possible, include a copy or the location (e.g., a URL) of an authorized version of the work;
 
@@ -195,14 +195,14 @@ const FromComponent = () => {
 
                         <div className="flex flex-col mt-10 text-[#ADB7BE]">
                             <h1 className="text-2xl  text-white">9. Miscellaneous.</h1>
-                            <p className="mt-2">These Terms, and any rights and licenses granted hereunder, may not be transferred or assigned by you, but may be assigned by us without restriction. Any attempted transfer or assignment in violation hereof shall be null and void. If any provision of these Terms is deemed invalid, then that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions of these Terms will remain in full force and effect. No waiver of any term of these Terms shall be deemed a further or continuing waiver of such term or any other term, and our failure to assert any right or provision under these Terms shall not constitute a waiver of such right or provision. Only the English version of this document has legal effect. Any translations of this document to other languages are provided for your convenience only. In case of any issues related to these Terms, please use the e-mail address contact@ssyoutube.com to contact us.</p>
+                            <p className="mt-2">These Terms, and any rights and licenses granted hereunder, may not be transferred or assigned by you, but may be assigned by us without restriction. Any attempted transfer or assignment in violation hereof shall be null and void. If any provision of these Terms is deemed invalid, then that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions of these Terms will remain in full force and effect. No waiver of any term of these Terms shall be deemed a further or continuing waiver of such term or any other term, and our failure to assert any right or provision under these Terms shall not constitute a waiver of such right or provision. Only the English version of this document has legal effect. Any translations of this document to other languages are provided for your convenience only. In case of any issues related to these Terms, please use the e-mail address contact@marsyoutube.com to contact us.</p>
                         </div>
 
 
 
 
                         <div className="text-1xl flex flex-col mt-5">
-                            <h1>Effective July 1, 2021</h1>
+                            <h1>Effective April 1, 2024</h1>
                         </div>
 
 

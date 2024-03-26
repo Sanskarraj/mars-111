@@ -45,7 +45,7 @@ const FromComponent = () => {
 
                     <div className="flex flex-col gap-12 justify-center text-white">
                         <h1 className="text-4xl">Contact US</h1>
-                        <p>If you have any questions, complaints, or claims with respect to the our Services, please send us a message to:support@ssyoutube.com and contact@ssyoutube.com</p>
+                        <p>If you have any questions, complaints, or claims with respect to the our Services, please send us a message to:support@ssyoutube.com and contact@marsyoutube.com</p>
                     </div>
                 </div>
             </div>

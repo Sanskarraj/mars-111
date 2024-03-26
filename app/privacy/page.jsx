@@ -70,7 +70,7 @@ const FromComponent = () => {
 
                         <div className="flex flex-col mt-10  text-[#ADB7BE]">
                             <h1 className="text-2xl  text-white">4. Children's Protection</h1>
-                            <p className="mt-2">If we learn that we’ve collected personal data from a child, we will take reasonable steps to delete it. Parents or legal guardians who believe that we may have collected personal data from a child can submit a request that it be removed, please contact us directly at contact@ssyoutube.com.
+                            <p className="mt-2">If we learn that we’ve collected personal data from a child, we will take reasonable steps to delete it. Parents or legal guardians who believe that we may have collected personal data from a child can submit a request that it be removed, please contact us directly at contact@marsyoutube.com.
                             </p>
                         </div>
 
@@ -104,12 +104,12 @@ const FromComponent = () => {
 
                         <div className="flex flex-col mt-10 text-[#ADB7BE]">
                             <h1 className="text-2xl text-white">8. Contact information</h1>
-                            <p className="mt-2">If you would like to exercise your rights, please send your request at contact@ssyoutube.com. In the request, please specify which right you are seeking to exercise and the scope of the request. This email may also be used in case you have any questions regarding your personal data use or about this Privacy Policy.</p>
+                            <p className="mt-2">If you would like to exercise your rights, please send your request at contact@marsyoutube.com. In the request, please specify which right you are seeking to exercise and the scope of the request. This email may also be used in case you have any questions regarding your personal data use or about this Privacy Policy.</p>
                         </div>
 
 
                         <div className="text-1xl flex flex-col mt-5">
-                            <h1>Effective July 1, 2021</h1>
+                            <h1>Effective April 1, 2024</h1>
                         </div>
 
 

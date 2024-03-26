@@ -1,11 +1,16 @@
 "use client";
 
 import Link from 'next/link'
-import React from 'react'
 import { TypeAnimation } from 'react-type-animation'
+import React from 'react';
+
+
 
 
 const HeroSection = () => {
+
+
+
     return (
         <section>
             <div className='grid grid-cols-1 lg:grid-cols-12'>
@@ -42,7 +47,18 @@ const HeroSection = () => {
                         <div class="absolute inset-0 w-full h-full bg-gradient-to-tl from-transparent to-red-400 sm:bg-gradient-radial sm:from-red-400 sm:to-transparent lg:bg-gradient-radial lg:from-red-400 lg:to-transparent blur-3xl rounded-full"></div>
                     </div>
 
+                    <div className='justify-center flex '>
+                        <div className='lg:inline-block'>
+                            <Link href="#legal" className='text-neutral-400 underline text-sm lg:text-white'>Legal Advisory</Link>
+                        </div>
+                        <div className='lg:inline-block lg:ml-5 ml-2'>
+                            <Link href="#disclaimer" className='underline text-sm text-neutral-400 lg:text-white'>Disclaimer</Link>
+                        </div>
+                    </div>
+
+
                 </div>
+
             </div>
         </section>
     )

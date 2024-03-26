@@ -17,13 +17,13 @@ const FAQsection = () => {
 
 
                     </h1>
-                    <p className="mt-2 text-sm">Absolutely, Yt1s is Online YouTube Downloader so This is work on All types of Devices smoothly such as computers, Mobile, and tablets. You just need a web browser and an internet connection.</p>
+                    <p className="mt-2 text-sm">Absolutely, Mars Downloader is Online YouTube Downloader so This is work on All types of Devices smoothly such as computers, Mobile, and tablets. You just need a web browser and an internet connection.</p>
                 </div>
 
                 <div className="flex flex-col mt-6 text-[#ADB7BE]">
                     <h1 className="lg:text-2xl  text-white">Can I use unlimited times for free?
                     </h1>
-                    <p className="mt-2 text-sm">Yes, Yt1s YouTube Downloader offers to convert and download unlimited Youtube videos and Audio 100 Free of cost and you don't have to pay for anything.</p>
+                    <p className="mt-2 text-sm">Yes, Mars YouTube Downloader offers to convert and download unlimited Youtube videos and Audio 100 Free of cost and you don't have to pay for anything.</p>
                 </div>
             </div>
         </div>

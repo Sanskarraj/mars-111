@@ -12,6 +12,8 @@ const ENDPOINT = 'https://back-mars-one.onrender.com';
 
 const FormSection = () => {
     const scrollToRef = useRef(null);
+    const scrollToRefData = useRef(null);
+    const scrollToRefPhase = useRef(null);
     const [url, setUrl] = useState('');
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState(null);
@@ -57,6 +59,8 @@ const FormSection = () => {
 
         socket.on('phase_executed', ({ phase, indexData }) => {
             setPhases((prevPhases) => [...prevPhases, { phase, indexData }]);
+            // scrollToRefPhase.current.scrollIntoView({ behavior: 'smooth' });
+
         });
 
         socket.on('execution_completed', () => {
@@ -76,6 +80,25 @@ const FormSection = () => {
         socket.emit('start_execution', { message: url });
     };
 
+
+
+    const handleInputChange = (event) => {
+        const link = event.target.value;
+        setUrl(link);
+        console.log("hii", url);
+
+        console.log("qweregerbnebnreibn");
+        // fetchData();
+
+    }
+
+    React.useEffect(() => {
+        if (url) {
+            fetchData();
+        }
+    }, [url]);
+
+
     const removeBlankSpaces = () => {
         console.log("remove blank spaces ke andar")
 
@@ -94,23 +117,27 @@ const FormSection = () => {
     };
 
 
+
+
     const handleError = () => {
         console.log("handle error ke andar")
         setURLError(true);
         // Vibrate the input by adding animation directly in className
         setTimeout(() => {
             setURLError(false);
-        }, 1000); // Remove the error state after 1 second
+        }, 1500); // Remove the error state after 1 second
     };
 
 
 
     const fetchData = async () => {
         console.log("fetch data ke andar")
+        removeBlankSpaces();
         setURLError(false); // Reset error state
         if (!isValidUrl()) {
             console.log("error sapadla")
             handleError();
+            setUrl('');
             return;
         }
 
@@ -121,6 +148,8 @@ const FormSection = () => {
         setIsExecutionCompleted(false);
         setPhases([]);
         try {
+            await new Promise(resolve => setTimeout(resolve, 200));
+            scrollToRefData.current.scrollIntoView({ behavior: 'smooth' });
             setData(null);
             // const response = await fetch(`api/.as?url=${url}`);
             // if (!response.ok) {
@@ -152,14 +181,15 @@ const FormSection = () => {
             <div className='lg:mt-10 flex-col flex items-center'>
                 <input
                     type="text"
-                    onChange={(e) => setUrl(e.target.value)}
-                    onBlur={removeBlankSpaces}
+                    onChange={handleInputChange}
+                    // onBlur={removeBlankSpaces}
                     value={url}
                     name="url"
                     placeholder="Enter youtube video link here..."
                     // style={{ border: `${error ? '1px solid red' : '1px solid #CBD5E0'}`, animation: `${error ? 'vibrate 0.3s ease infinite' : 'none'}` }}
+                    ref={scrollToRefData}
                     className={`font-sans w-72 lg:w-1/2 border ${urlError ? 'border-red-500 animate-vibrate' : 'border-slate-200'} rounded-lg py-2 px-3 outline-none	bg-transparent transition-colors duration-300 ${urlError ? 'animate-shake' : ''}`} />
-
+                {urlError && <div style={{ width: '200px', height: '15px', color: 'red', fontSize: '12px' }}>Enter the link properly</div>}
 
                 <button
                     onClick={fetchData} disabled={loading}
@@ -207,7 +237,7 @@ const FormSection = () => {
                 {phases.length > 0 && bigLoading && (
                     <div>
                         {/* <h3>Execution Phases:</h3> */}
-                        <ul>
+                        <ul ref={scrollToRefPhase}>
                             {phases.map((phase, index) => (
                                 <li key={index}>{phase.phase}...</li>
                             ))}
@@ -230,10 +260,10 @@ const FormSection = () => {
             </p>
             <div className='justify-center flex flex-col items-center'>
                 <div className='lg:inline-block'>
-                    <Link href="/terms" className='text-neutral-400 underline text-sm lg:text-white'>Terms of Service</Link>
+                    <Link href="/terms" className='text-neutral-400 hover:underline text-sm lg:text-white'>Terms of Service</Link>
                 </div>
                 <div className='lg:inline-block lg:ml-3'>
-                    <Link href="/privacy" className='underline text-sm text-neutral-400 lg:text-white'>Privacy Policy</Link>
+                    <Link href="/privacy" className='hover:underline text-sm text-neutral-400 lg:text-white'>Privacy Policy</Link>
                 </div>
             </div>
         </>
