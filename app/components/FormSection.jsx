@@ -6,6 +6,8 @@ import { v4 as uuidv4 } from 'uuid';
 import io from 'socket.io-client'; // Import io object from socket.io-client
 import Link from 'next/link'
 
+
+
 const ENDPOINT = 'https://back-mars-one.onrender.com';
 
 
@@ -85,9 +87,9 @@ const FormSection = () => {
     const handleInputChange = (event) => {
         const link = event.target.value;
         setUrl(link);
-        console.log("hii", url);
+        // console.log("hii", url);
 
-        console.log("qweregerbnebnreibn");
+        // console.log("qweregerbnebnreibn");
         // fetchData();
 
     }
@@ -100,7 +102,7 @@ const FormSection = () => {
 
 
     const removeBlankSpaces = () => {
-        console.log("remove blank spaces ke andar")
+        // console.log("remove blank spaces ke andar")
 
         setUrl(url.trim());
     };
@@ -120,7 +122,7 @@ const FormSection = () => {
 
 
     const handleError = () => {
-        console.log("handle error ke andar")
+        // console.log("handle error ke andar")
         setURLError(true);
         // Vibrate the input by adding animation directly in className
         setTimeout(() => {
@@ -131,11 +133,11 @@ const FormSection = () => {
 
 
     const fetchData = async () => {
-        console.log("fetch data ke andar")
+        // console.log("fetch data ke andar")
         removeBlankSpaces();
         setURLError(false); // Reset error state
         if (!isValidUrl()) {
-            console.log("error sapadla")
+            // console.log("error sapadla")
             handleError();
             setUrl('');
             return;
@@ -155,14 +157,14 @@ const FormSection = () => {
             // if (!response.ok) {
             //     throw new Error('Failed to fetch data');
             // }
-            console.log("hii")
+            // console.log("hii")
             // const requestData = await response.json();
             // setData(requestData.data);
 
 
             const response = await axios.get(`${ENDPOINT}/data?url=${url}`);
-            console.log(response)
-            console.log(response.data[0].formatData);
+            // console.log(response)
+            // console.log(response.data[0].formatData);
 
             setData(response.data[0].formatData);
             setImageData(response.data[0].imageUrl);
@@ -189,7 +191,7 @@ const FormSection = () => {
                     // style={{ border: `${error ? '1px solid red' : '1px solid #CBD5E0'}`, animation: `${error ? 'vibrate 0.3s ease infinite' : 'none'}` }}
                     ref={scrollToRefData}
                     className={`font-sans w-72 lg:w-1/2 border ${urlError ? 'border-red-500 animate-vibrate' : 'border-slate-200'} rounded-lg py-2 px-3 outline-none	bg-transparent transition-colors duration-300 ${urlError ? 'animate-shake' : ''}`} />
-                {urlError && <div style={{ width: '200px', height: '15px', color: 'red', fontSize: '12px' }}>Enter the link properly</div>}
+                {urlError && <div style={{ width: '200px', height: '15px', color: 'red', fontSize: '13px' }}>Please check the copied URL.</div>}
 
                 <button
                     onClick={fetchData} disabled={loading}
@@ -225,7 +227,9 @@ const FormSection = () => {
                                 >
                                     <div style={{ marginRight: '30px' }}> {item.Format}</div>
                                     <div style={{ marginRight: '25px' }}> {item.Quality}</div>
-                                    <div> {item.Size}MB</div>
+                                    <div>
+                                        {item.Size >= 1000 ? `${(item.Size / 1000).toFixed(1)} GB` : `${item.Size} MB`}
+                                    </div>
                                     {/* <div>AV: {item.userId}</div> */}
                                 </button>
                             ))}
