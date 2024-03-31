@@ -8,7 +8,7 @@ import Link from 'next/link'
 
 
 
-const ENDPOINT = 'http://34.66.246.227';
+const ENDPOINT = 'https://back-mars-one.onrender.com';
 
 
 
